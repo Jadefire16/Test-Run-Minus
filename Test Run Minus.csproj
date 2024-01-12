@@ -9,6 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Core\Interpreter\Lexing\" />
+    <Folder Include="Core\Interpreter\Tokenizing\" />
+    <Folder Include="Core\Interpreter\Parsing\" />
     <Folder Include="Test\" />
   </ItemGroup>
 

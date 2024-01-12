@@ -1,5 +1,5 @@
-﻿using Test_Run_Minus.Core.Test_Results;
-using Test_Run_Minus.Core.Attributes;
+﻿using Test_Run_Minus.Core.Test_Runner.Results;
+using Test_Run_Minus.Core.Test_Runner.Attributes;
 using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
