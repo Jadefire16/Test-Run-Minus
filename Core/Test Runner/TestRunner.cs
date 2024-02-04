@@ -18,6 +18,11 @@ namespace Test_Run_Minus.Core.Test_Runner
             cache = new TestTypeCache();
         }
 
+        public void Initialize()
+        {
+
+        }
+
         public void Run()
         {
             //foreach (var method in methods)

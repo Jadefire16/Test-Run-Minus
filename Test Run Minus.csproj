@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Folder Include="Core\Logging\" />
+    <Folder Include="Resources\Suites\" />
   </ItemGroup>
 
 </Project>

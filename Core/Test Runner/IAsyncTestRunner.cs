@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Test_Run_Minus.Common;
 
 namespace Test_Run_Minus.Core.Test_Runner
 {
-    internal interface IAsyncTestRunner
-    {
-        Task Run();
-    }
+    internal interface IAsyncTestRunner : IAsyncRunnable, IInitializable { }
 }
