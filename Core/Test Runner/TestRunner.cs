@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Test_Run_Minus.Core.Test_Runner
 {
     internal class TestRunner : ITestRunner
@@ -25,14 +20,7 @@ namespace Test_Run_Minus.Core.Test_Runner
 
         public void Run()
         {
-            //foreach (var method in methods)
-            //{
-            //    string typeName = method.Key;
-            //    Type? type = Type.GetType(typeName);
-            //    if (type is null)
-            //        continue; //TODO: Throw Error
-
-            //}
+            
         }
     }
 }
