@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test_Run_Minus.Core.Test_Runner
+namespace Test_Run_Minus.Core.Execution
 {
     internal class Cache<T> : ICache<T>
     {
@@ -35,10 +35,10 @@ namespace Test_Run_Minus.Core.Test_Runner
                 return 1;
             return CompareTo(other);
         }
-
+        // Todo: this compareTo logic is completely broken, also remove the throw and just return -1
         public int CompareTo(object? obj)
         {
-            if (obj == null) 
+            if (obj == null)
                 return 1;
             return obj is not Cache<T> casted ? throw new ArgumentException($"Object is not a {nameof(Cache<T>)}") : CompareTo(casted);
         }

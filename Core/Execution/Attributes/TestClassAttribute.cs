@@ -1,4 +1,4 @@
-﻿namespace Test_Run_Minus.Core.Test_Runner.Attributes;
+﻿namespace Test_Run_Minus.Core.Execution.Attributes;
 
 [AttributeUsage(AttributeTargets.Class)]
 public class TestClassAttribute : BaseTestAttribute

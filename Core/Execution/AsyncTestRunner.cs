@@ -1,4 +1,4 @@
-﻿namespace Test_Run_Minus.Core.Test_Runner
+﻿namespace Test_Run_Minus.Core.Execution
 {
     internal class AsyncTestRunner : IAsyncTestRunner
     {

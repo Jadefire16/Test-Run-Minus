@@ -1,5 +1,5 @@
-﻿using Test_Run_Minus.Core.Test_Runner.Results;
-using Test_Run_Minus.Core.Test_Runner.Attributes;
+﻿using Test_Run_Minus.Core.Execution.Results;
+using Test_Run_Minus.Core.Execution.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,4 +1,4 @@
-﻿namespace Test_Run_Minus.Core.Test_Runner.Results;
+﻿namespace Test_Run_Minus.Core.Execution.Results;
 
 public interface ITestResult
 {

@@ -1,6 +1,6 @@
-﻿namespace Test_Run_Minus.Core.Test_Runner.Attributes;
+﻿namespace Test_Run_Minus.Core.Execution.Attributes;
 
-[AttributeUsage(AttributeTargets.All)]
+[AttributeUsage(AttributeTargets.Class)]
 public abstract class BaseTestAttribute : Attribute
 {
     public string TestName { get; private set; }
