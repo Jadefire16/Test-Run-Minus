@@ -9,6 +9,14 @@ public class TestResult : ITestResult
         this.TestId = Guid.NewGuid();
     }
 
+    public TestResult(Exception ex)
+    {
+        this.Message = ex.Message;
+        this.ResultCode = -1;
+        this.Exception = ex;
+        this.TestId = new Guid();
+    }
+
     public int ResultCode { get; }
     public string Message { get; }
     public Exception? Exception { get; }

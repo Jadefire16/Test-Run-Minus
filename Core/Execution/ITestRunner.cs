@@ -2,5 +2,5 @@
 
 namespace Test_Run_Minus.Core.Execution
 {
-    internal interface ITestRunner : IRunnable, IInitializable { }
+    internal interface ITestRunner : ITestRunnable, IInitializable { }
 }

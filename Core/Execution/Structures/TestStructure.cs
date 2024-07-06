@@ -18,7 +18,7 @@ namespace Test_Run_Minus.Core.Execution.Structures
 
         public TestResult Execute()
         {
-            TestResult? result = null;
+            TestResult? result;
             try
             {
                 if (_parameters is null || _parameters.Length == 0)

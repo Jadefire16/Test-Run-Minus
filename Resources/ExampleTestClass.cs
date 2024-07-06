@@ -14,27 +14,23 @@ namespace Test_Run_Minus.Resources
         public class MyOtherTestClass
         {
             [TestMethod("My Other Test A", 0)]
-            public TestResult MyTestMethodA()
+            public void MyTestMethodA()
             {
-                return new TestResult("Test passed with no defects", 0);
             }
 
             [TestMethod("My Other Test B", 1)]
-            public TestResult MyTestMethodB()
+            public void MyTestMethodB()
             {
-                return new TestResult("Test failed with no defects", 0);
             }
 
             [TestMethod("My Other Test C", 2)]
-            public TestResult MyTestMethodC()
+            public void MyTestMethodC()
             {
-                return new TestResult("Test passed with no defects", 0);
             }
 
             [TestMethod("My Other Test D", 3)]
-            public TestResult MyTestMethodD()
+            public void MyTestMethodD()
             {
-                return new TestResult("Test passed with no defects", 0);
             }
         }
 
@@ -42,27 +38,23 @@ namespace Test_Run_Minus.Resources
         public class MyExtraTestClass
         {
             [TestMethod("My Test A", 0)]
-            public TestResult MyTestMethodA()
+            public void MyTestMethodA()
             {
-                return new TestResult("Test passed with no defects", 1);
             }
 
             [TestMethod("My Test B", 1)]
-            public TestResult MyTestMethodB()
+            public void MyTestMethodB()
             {
-                return new TestResult("Test failed with no defects", 2);
             }
 
             [TestMethod("My Test C", 2)]
-            public TestResult MyTestMethodC()
+            public void MyTestMethodC()
             {
-                return new TestResult("Test passed with no defects", 1);
             }
 
             [TestMethod("My Test D", 3)]
-            public TestResult MyTestMethodD()
+            public void MyTestMethodD()
             {
-                return new TestResult("Test passed with no defects", 1);
             }
         }
 
