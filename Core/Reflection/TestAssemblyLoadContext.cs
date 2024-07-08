@@ -27,6 +27,8 @@ public class TestAssemblyLoadContext : AssemblyLoadContext
                 // Todo: log an event when this exception occurs to inform the user that a dll failed to load, add optional configuration to disable
             }
         }
+
+        return null; //Todo Remove this
     }
 }
 

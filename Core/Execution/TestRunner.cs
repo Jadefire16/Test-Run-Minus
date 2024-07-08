@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using Test_Run_Minus.Core.Execution.Attributes;
+using Test_Run_Minus.Core.Execution.IL.Methods;
 using Test_Run_Minus.Core.Execution.Results;
 using Test_Run_Minus.Core.Execution.Structures;
 
@@ -9,64 +10,38 @@ namespace Test_Run_Minus.Core.Execution
 {
     public class TestRunner
     {
-        private Dictionary<string, TestCase> _cases = new();
+        private HashSet<MethodRecord> _cases = new();
         public void Initialize(Assembly asm)
         {
             IEnumerable<Type> types = asm.GetTypes().Where(t => t is { IsAbstract: false, IsClass: true } && t.GetCustomAttribute<TestClassAttribute>() is not null);
             using IEnumerator<Type> enumerator = types.GetEnumerator();
-            while (enumerator.MoveNext())
+            foreach (var type in types)
             {
-                Type type = enumerator.Current;
                 IEnumerable<MethodInfo> methods = type.GetMethods().Where(m =>
                     m.GetCustomAttribute<TestMethodAttribute>() is not null &&
                     m.GetCustomAttribute<AsyncStateMachineAttribute>() is null &&
                     m is { IsStatic: false, IsVirtual: false }
                 );
-
                 object? instance = Activator.CreateInstance(type);
-                if (instance is null)
-                    continue;
+                Debug.Assert(instance is not null, "Type instance must not be null");
+
                 foreach (MethodInfo method in methods)
                 {
-                    Console.WriteLine(method.Name);
-                    Delegate del = Delegate.CreateDelegate(typeof(Delegate), instance, method);
+                    TestParametersAttribute? parameterAttribute = method.GetCustomAttribute<TestParametersAttribute>();
+                    object[]? parameters = parameterAttribute?.Parameters;
+                   _cases.Add(new MethodRecord(type.Name + method.Name, method, instance, parameters));
                 }
             }
-            // Todo cast enumerators to some cached list or array and populate test cases
         }
 
         public void Execute()
         {
-            
-        }
-
-        class TestCase
-        {
-            private object _classInstance;
-            private MethodInfo _method;
-            private object[] _parameters;
-
-            public TestCase(MethodInfo method, object[] parameters = null, object classInstance = null)
+            foreach (MethodRecord testCase in _cases)
             {
-                _method = method ?? throw new ArgumentNullException(nameof(method));
-                this._parameters = parameters;
-            }
-
-            public TestResult Invoke()
-            {
-                try
-                {
-                    _method.Invoke(_classInstance, _parameters);
-                }
-                catch (Exception ex)
-                {
-                    return new TestResult(ex);
-                }
-                return new TestResult("Test Succeeded", 0, null);
-                // Todo: Add logic to handle timeouts on tests, may need to implement something similar to Unity's Coroutine system
+                var result = testCase.MethodInfo.Invoke(testCase.Target, testCase.Parameters);
+                Console.WriteLine(result);
             }
         }
-
     }
 }
 
